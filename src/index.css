@@ -23,7 +23,7 @@ button {
   color: #ffffff;
   background-color: #be4949;
   font-size: 26px;
-  font-family: sans-serif;
+  font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;
   display: flex;
   justify-content: space-between;
 }
@@ -32,7 +32,7 @@ button {
   color: #ffffff;
   background-color: #be4949;
   font-size: 26px;
-  font-family: sans-serif;
+  font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;
   display: flex;
   justify-content: space-between;
 }
@@ -86,6 +86,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;
 }
 .day:hover {
   background-color: #92c8d1;
@@ -118,7 +119,7 @@ button {
   top: 100px;
   left: calc(50% - 175px);
   position: absolute;
-  font-family: sans-serif;
+  font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;
 }
 #eventTitleInput {
   padding: 10px;
