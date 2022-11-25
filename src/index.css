@@ -18,22 +18,49 @@ button {
   color: white;
 }
 
-#header {
+#monthHeader {
   padding: 10px;
   color: #6cc7d3;
+  background-color: #be4949;
   font-size: 26px;
   font-family: sans-serif;
   display: flex;
   justify-content: space-between;
 }
 
+#yearHeader {
+  color: #6cc7d3;
+  background-color: #be4949;
+  font-size: 26px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+#backwardMonth{
+  margin-right: 30px;
+  margin-left: 250px;
+}
+
+#forwardMonth{
+  margin-right: 250px;
+  margin-left: 30px;
+}
+#backwardYear{
+  margin-right: 30px;
+  margin-left: 260px;
+}
+
+#forwardYear{
+  margin-right: 260px;
+  margin-left: 30px;
+}
 #container {
   width: 770px;
 }
 #weekdays {
   width: 100%;
   display: flex;
-  color: #ffffff;
+  color: #be4949;
   background-color: #6cc7d3;
 }
 #weekdays div {
@@ -69,7 +96,7 @@ button {
 .event {
   font-size: 10px;
   padding: 3px;
-  background-color: #58bae4;
+  background-color: #be4949;
   color: white;
   border-radius: 5px;
   max-height: 55px;

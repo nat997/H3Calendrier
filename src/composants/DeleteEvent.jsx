@@ -8,8 +8,8 @@ export const DeleteEvent = ({ onDelete, eventText, onClose }) => {
 
         <p id="eventText">{eventText}</p>
 
-        <button onClick={onDelete} id="deleteButton">Delete</button>
-        <button onClick={onClose} id="closeButton">Close</button>
+        <button onClick={onDelete} id="deleteButton">Suprimer</button>
+        <button onClick={onClose} id="closeButton">Fermer</button>
       </div>
 
       <div id="modalBackDrop"></div>

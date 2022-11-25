@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
-export const NewEventModal = ({ onSave, onClose }) => {
+export const NewEvent = ({ onSave, onClose }) => {
   const [title, setTitle] = useState('');
   const [error, setError] = useState(false);
   const [Desc, setDesc] = useState('');
   return(
     <>
       <div id="newEvent">
-        <h2>Your appointment :</h2>
+        <h2>Veuillez saisir votre rdv et description :</h2>
 
         <input 
           className={error ? 'error' : ''}
           value={title} 
           onChange={e => setTitle(e.target.value)} 
           id="eventTitleInput" 
-          placeholder="Title" 
+          placeholder="Titre" 
         />
         <input 
           className={error ? 'error' : ''}
@@ -32,12 +32,12 @@ export const NewEventModal = ({ onSave, onClose }) => {
               setError(true);
             }
           }} 
-          id="saveButton">Save</button>
+          id="saveButton">Enregistrer </button>
 
 
         <button 
           onClick={onClose}
-          id="cancelButton">Cancel</button>
+          id="cancelButton">Annuler</button>
       </div>
 
       <div id="BackDrop"></div>

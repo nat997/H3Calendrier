@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-export const useDate = (events, nav) => {
-  const [dateDisplay, setDateDisplay] = useState('');
+export const useDate = (events, mois) => {
+  const [MonthDisplay, setMonthDisplay] = useState('');
+  const [YearDisplay, setYearDisplay] = useState('');
   const [days, setDays] = useState([]);
-
   const eventForDate = date => events.find(e => e.date === date);
 
   useEffect(() => {
@@ -11,8 +11,8 @@ export const useDate = (events, nav) => {
     //const weekdaysShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const dt = new Date();
     //const dayofweek = weekdaysShort[new Date().getDay()];
-    if (nav !== 0) {
-      dt.setMonth(new Date().getMonth() + nav);
+    if (mois !== 0) {
+      dt.setMonth(new Date().getMonth() + mois);
     }
 
     const day = dt.getDate();
@@ -28,8 +28,9 @@ export const useDate = (events, nav) => {
       day: 'numeric',
     });
 
-    //setDateDisplay(`${dayofweek} ${day} ${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`);
-    setDateDisplay(`${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`);
+    //MonthYearDisplay(`${dayofweek} ${day} ${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`);
+    setMonthDisplay(`${dt.toLocaleDateString('fr-fr', { month: 'long' })}`);
+    setYearDisplay(`${year}`);
     const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
     const daysArr = [];
 
@@ -40,7 +41,7 @@ export const useDate = (events, nav) => {
         daysArr.push({
           value: i - paddingDays  ,
           event: eventForDate(dayString),
-          isCurrentDay: i - paddingDays === day && nav === 0,
+          isCurrentDay: i - paddingDays === day && mois === 0,
           date: dayString,
         });
       } else {
@@ -54,9 +55,10 @@ export const useDate = (events, nav) => {
     }
 
     setDays(daysArr);
-  }, [events, nav]);
+  }, [events, mois]);
   return {
     days,
-    dateDisplay,
+    MonthDisplay,
+    YearDisplay,
   };
 };

@@ -1,42 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { CalendarHeader } from './composants/CalendarHeader';
 import { Day } from './composants/Day';
-import { NewEventModal } from './composants/NewEvent';
+import { NewEvent } from './composants/NewEvent';
 import { DeleteEvent } from './composants/DeleteEvent';
 import { useDate } from './composants/UseDate';
 export const App = () => {
-  const [nav, setNav] = useState(0);
+  const [mois, setMois] = useState(0);
   const [clicked, setClicked] = useState();
   const [events, setEvents] = useState(
     localStorage.getItem('events') ? 
       JSON.parse(localStorage.getItem('events')) : 
       []
   );
-
   const eventForDate = date => events.find(e => e.date === date);
+  const { days, MonthDisplay , YearDisplay } = useDate(events, mois);
+  useEffect(() => {localStorage.setItem('events', JSON.stringify(events));}, [events]);
+  function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
-  useEffect(() => {
-    localStorage.setItem('events', JSON.stringify(events));
-  }, [events]);
-
-  const { days, dateDisplay } = useDate(events, nav);
+console.log();
   return(
     <>
       <div id="container">
         <CalendarHeader 
-          dateDisplay={dateDisplay}
-          onNext={() => setNav(nav + 1)}
-          onBack={() => setNav(nav - 1)}
+          MonthDisplay={capitalizeFirstLetter(MonthDisplay)}
+          onNextMonth={() => setMois(mois + 1)}
+          onBackMonth={() => setMois(mois - 1)}
+          YearDisplay={YearDisplay}
+          onNextYear={() => setMois(mois + 12)}
+          onBackYear={() => setMois(mois - 12)}
         />
 
         <div id="weekdays">
-          <div>Monday</div>
-          <div>Tuesday</div>
-          <div>Wednesday</div>
-          <div>Thursday</div>
-          <div>Friday</div>
-          <div>Saturday</div>
-          <div>Sunday</div>
+          <div>Lundi</div>
+          <div>Mardi</div>
+          <div>Mercredi</div>
+          <div>Jeudi</div>
+          <div>Vendredi</div>
+          <div>Samedi</div>
+          <div>Dimanche</div>
         </div>
 
         <div id="calendar">
@@ -56,7 +59,7 @@ export const App = () => {
 
       {
         clicked && !eventForDate(clicked) &&
-        <NewEventModal
+        <NewEvent
           onClose={() => setClicked(null)}
           onSave={title => {
             setEvents([ ...events, { title, date: clicked }]);
