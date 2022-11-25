@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useDate = (events, mois) => {
+export const DateArray = (events, mois) => {
   const [MonthDisplay, setMonthDisplay] = useState('');
   const [YearDisplay, setYearDisplay] = useState('');
   const [days, setDays] = useState([]);

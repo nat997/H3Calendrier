@@ -3,7 +3,7 @@ import { CalendarHeader } from './composants/CalendarHeader';
 import { Day } from './composants/Day';
 import { NewEvent } from './composants/NewEvent';
 import { DeleteEvent } from './composants/DeleteEvent';
-import { useDate } from './composants/UseDate';
+import { DateArray } from './composants/DateArray';
 export const App = () => {
   const [mois, setMois] = useState(0);
   const [clicked, setClicked] = useState();
@@ -13,7 +13,7 @@ export const App = () => {
       []
   );
   const eventForDate = date => events.find(e => e.date === date);
-  const { days, MonthDisplay , YearDisplay } = useDate(events, mois);
+  const { days, MonthDisplay , YearDisplay } = DateArray(events, mois);
   useEffect(() => {localStorage.setItem('events', JSON.stringify(events));}, [events]);
   function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

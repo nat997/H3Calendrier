@@ -20,7 +20,7 @@ button {
 
 #monthHeader {
   padding: 10px;
-  color: #6cc7d3;
+  color: #ffffff;
   background-color: #be4949;
   font-size: 26px;
   font-family: sans-serif;
@@ -29,7 +29,7 @@ button {
 }
 
 #yearHeader {
-  color: #6cc7d3;
+  color: #ffffff;
   background-color: #be4949;
   font-size: 26px;
   font-family: sans-serif;
@@ -60,12 +60,13 @@ button {
 #weekdays {
   width: 100%;
   display: flex;
-  color: #be4949;
-  background-color: #6cc7d3;
+  color: #ffffff;
+  background-color: #be4949;
 }
 #weekdays div {
   width: 100px;
   padding: 10px;
+
 }
 #calendar {
   width: 100%;
@@ -87,7 +88,7 @@ button {
   justify-content: space-between;
 }
 .day:hover {
-  background-color: #92a1d1;
+  background-color: #92c8d1;
 }
 
 .day + .currentDay {
@@ -160,3 +161,4 @@ button {
   position: absolute;
   background-color: rgba(0,0,0,0.8);
 }
+
